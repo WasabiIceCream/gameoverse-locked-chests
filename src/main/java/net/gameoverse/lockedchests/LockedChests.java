@@ -23,8 +23,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 /**
- * Locked Chests, after Minecraft Infinite's (idea only, all code and art our own). Bosses drop Bronze, Silver, Gold
- * and Diamond keys ({@link KeyDrops}); a share of structure loot chests generate locked ({@link ChestPlacer}), holding
+ * Locked Chests, after Minecraft Infinite's (idea only, all code and art our own). Bosses drop Bronze, Silver, Gold,
+ * Diamond and Divine keys ({@link KeyDrops}); a share of structure loot chests generate locked ({@link ChestPlacer}), holding
  * their own loot plus a better bonus roll, unlocked per player ({@link LockedChestBlockEntity}).
  */
 public final class LockedChests implements ModInitializer {
@@ -36,7 +36,7 @@ public final class LockedChests implements ModInitializer {
     @Override
     public void onInitialize() {
         Config.load();
-        Rarity[] rarities = {Rarity.UNCOMMON, Rarity.RARE, Rarity.EPIC, Rarity.EPIC};
+        Rarity[] rarities = {Rarity.UNCOMMON, Rarity.RARE, Rarity.EPIC, Rarity.EPIC, Rarity.EPIC};
         for (KeyTier tier : KeyTier.values()) {
             String name = tier.getSerializedName() + "_key";
             Rarity rarity = rarities[tier.ordinal()];

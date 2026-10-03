@@ -21,20 +21,28 @@ public final class Config {
     /** Log every Locked Chest world generation places (for testing). */
     public boolean logPlacements = false;
     /** Lowest area level (Dynamic Difficulty, structure bonus included) for each lock tier above Bronze. */
-    public Map<String, Integer> tierMinLevel = new LinkedHashMap<>(Map.of("silver", 15, "gold", 30, "diamond", 45));
+    public Map<String, Integer> tierMinLevel = ordered("silver", 15, "gold", 30, "diamond", 45, "divine", 60);
     /** Key dropped by an Invader of each Apotheosis rarity (rarities left out drop nothing). */
-    public Map<String, String> invaderKeys = new LinkedHashMap<>(Map.of(
-        "apotheosis:rare", "bronze", "apotheosis:epic", "silver", "apotheosis:mythic", "gold"));
+    public Map<String, String> invaderKeys = ordered(
+        "apotheosis:rare", "bronze", "apotheosis:epic", "silver", "apotheosis:mythic", "gold");
     /** Key dropped by an Elite of each Apotheosis rarity. */
-    public Map<String, String> eliteKeys = new LinkedHashMap<>(Map.of(
+    public Map<String, String> eliteKeys = ordered(
         "apotheosis:common", "bronze", "apotheosis:uncommon", "bronze", "apotheosis:rare", "bronze",
-        "apotheosis:epic", "silver", "apotheosis:mythic", "silver"));
+        "apotheosis:epic", "silver", "apotheosis:mythic", "silver");
     /** Key dropped by these entity types (Dragonkind Evolved's dragons are the vanilla Ender Dragon). */
-    public Map<String, String> bossKeys = new LinkedHashMap<>(Map.of(
-        "minecraft:wither", "diamond", "minecraft:warden", "diamond", "minecraft:elder_guardian", "diamond",
-        "minecraft:ender_dragon", "diamond"));
+    public Map<String, String> bossKeys = ordered(
+        "minecraft:wither", "divine", "minecraft:warden", "diamond", "minecraft:elder_guardian", "diamond",
+        "minecraft:ender_dragon", "divine");
 
     public static Config INSTANCE = new Config();
+
+    /** A map that keeps the order the defaults are written in (so the config file reads naturally). */
+    @SuppressWarnings("unchecked")
+    private static <V> Map<String, V> ordered(Object... keysAndValues) {
+        Map<String, V> map = new LinkedHashMap<>();
+        for (int i = 0; i < keysAndValues.length; i += 2) map.put((String) keysAndValues[i], (V) keysAndValues[i + 1]);
+        return map;
+    }
 
     static void load() {
         Path path = FabricLoader.getInstance().getConfigDir().resolve("gameoverse_locked_chests.json");

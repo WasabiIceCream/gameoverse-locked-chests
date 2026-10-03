@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "apotheosis:random_affix_item",
+          "rarities": [
+            "apotheosis:epic",
+            "apotheosis:mythic"
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "apotheosis:random_gem",
+          "purities": [
+            "perfect"
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse:hearts/heart_crystal_item"
+        }
+      ]
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "apotheosis"
+      ]
+    }
+  ]
+}

@@ -5,9 +5,9 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-/** The four key and lock tiers, weakest first. A key opens its own tier and every tier below it. */
+/** The five key and lock tiers, weakest first. A key opens its own tier and every tier below it. */
 public enum KeyTier implements StringRepresentable {
-    BRONZE, SILVER, GOLD, DIAMOND;
+    BRONZE, SILVER, GOLD, DIAMOND, DIVINE;
 
     private final String name = name().toLowerCase(Locale.ROOT);
 

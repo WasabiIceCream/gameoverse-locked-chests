@@ -59,6 +59,21 @@
     "facing=west,tier=diamond": {
       "model": "gameoverse_locked_chests:block/locked_chest_diamond",
       "y": 270
+    },
+    "facing=north,tier=divine": {
+      "model": "gameoverse_locked_chests:block/locked_chest_divine"
+    },
+    "facing=east,tier=divine": {
+      "model": "gameoverse_locked_chests:block/locked_chest_divine",
+      "y": 90
+    },
+    "facing=south,tier=divine": {
+      "model": "gameoverse_locked_chests:block/locked_chest_divine",
+      "y": 180
+    },
+    "facing=west,tier=divine": {
+      "model": "gameoverse_locked_chests:block/locked_chest_divine",
+      "y": 270
     }
   }
 }
