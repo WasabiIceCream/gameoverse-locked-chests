@@ -6,24 +6,29 @@ original (`tools/draw.py` draws the textures).
 
 ## What it does
 
-- **Keys**: Bronze, Silver, Golden, Diamond. A key opens its own tier and every tier below, and is used up.
-  Dropped when a player kills:
-  - an Apotheosis Invader: Rare Bronze, Epic Silver, Mythic Gold (Common and Uncommon drop none);
-  - an Apotheosis Elite: Common to Rare Bronze, Epic and Mythic Silver;
-  - the Wither, Warden, Elder Guardian or Ender Dragon (Dragonkind Evolved's dragons included): Diamond.
+- **Keys**: Common, Rare, Epic, Legendary, Divine (names coloured like the chest art's tiers). A key opens its own tier
+  and every tier below, and is used up. Dropped when a player kills:
+  - an Apotheosis Invader: Rare Common, Epic Rare, Mythic Epic (Common and Uncommon drop none);
+  - an Apotheosis Elite: Common to Rare Common, Epic and Mythic Rare;
+  - the Warden or an Elder Guardian: Legendary; the Wither or Ender Dragon (Dragonkind Evolved's dragons included):
+    Divine.
 - **Locked Chests**: each single, dry structure loot chest has a 6% chance to generate locked instead, keeping its
-  loot table. Its tier comes from the Dynamic Difficulty area level there (structure bonus included): Bronze below
-  15, Silver 15+, Gold 30+, Diamond 45+.
+  loot table. Its tier comes from the Dynamic Difficulty area level there (structure bonus included): Common below
+  15, Rare 15+, Epic 30+, Legendary 45+, Divine 60+ (only the End goes that high).
 - **Per player**: unlocking rolls the chest's own loot table for that player (their own seed) plus the tier's bonus
   table (`data/gameoverse_locked_chests/loot_table/chests/<tier>.json`: Apotheosis affixed gear and a gem, better
-  rarities and purities per tier, plus a Heart Crystal from `gameoverse:hearts/heart_crystal_item` at 25% Bronze,
-  45% Silver, 70% Gold, always in Diamond: the hearts mod's own 10% chest roll only hooks vanilla loot containers, so
-  locking a chest would otherwise have removed its crystal chance). After that the player opens their copy without a key; everyone else still needs one.
-- Unbreakable outside creative and blast-proof. Hoppers can't reach it (not a vanilla container).
-
-Everything above is in `config/gameoverse_locked_chests.json` (written with the defaults on first start):
-`lockedChestChance`, `tierMinLevel`, `invaderKeys`, `eliteKeys`, `bossKeys`, and `logPlacements` (logs every chest
-world generation places and the tier it settles on; for testing).
+  rarities and purities per tier, plus a Heart Crystal from `gameoverse:hearts/heart_crystal_item` at 25% Common, 45%
+  Rare, 70% Epic, always in Legendary, 1-2 in Divine: the hearts mod's own 10% chest roll only hooks vanilla loot
+  containers, so locking a chest would otherwise have removed its crystal chance). After that the player opens their
+  copy without a key; everyone else still needs one.
+- Unbreakable outside creative, blast-proof, doesn't hide the block below it (`noOcclusion`), model-shaped hitbox.
+  Hoppers can't reach it (not a vanilla container).
+- **Animated** with `gameoverse-locked-chests-art` (the purchased chest art, never published): a client block entity
+  renderer draws the art pack's per-bone part models and plays its keyframes, `idle_mouve` looping (offset per chest)
+  while nobody has it open, `opening` (`opening_rare` for Legendary and Divine) while someone does, `closing` when the
+  last viewer leaves. Opens/closes reach clients as block event 1 (viewer count), like vanilla chests. Rotations use
+  Blockbench's convention (X and Y negated, applied Z, Y, X); checked in game. Without the art pack the renderer draws
+  nothing and the mod's own fallback cube shows (`tools/draw.py`).
 
 ## How it works
 
@@ -43,11 +48,12 @@ world generation places and the tier it settles on; for testing).
 
 Compiles against the server's Dynamic Difficulty jar by path (`build.gradle.kts`).
 
-## Tested (2026-10-03)
+## Tested (2026-10-03, all in game unless noted)
 
 World generation at 100% in fresh far chunks (placement, pending NBT, tier settling to Diamond at area level 50), and
-in game: tier textures, too-weak/no key message, unlocking with the right and a stronger key, reopening without a
-key, survival breaking refused, a Rare Invader dropping a Bronze Key.
+in game: textures, too-weak/no key message, unlocking with the right and a stronger key, reopening without a key,
+survival breaking refused, a Rare Invader dropping a key, a guaranteed Heart Crystal from the top tier, the art pack's
+models and keys, the idle/opening/rare/closing animations and their directions.
 
 ## Later
 
