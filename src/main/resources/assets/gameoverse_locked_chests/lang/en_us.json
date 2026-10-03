@@ -6,5 +6,5 @@
   "item.gameoverse_locked_chests.divine_key": "Divine Key",
   "block.gameoverse_locked_chests.locked_chest": "Locked Chest",
   "container.gameoverse_locked_chests.locked_chest": "Locked Chest",
-  "message.gameoverse_locked_chests.needs_key": "Locked. Needs a %s or better."
+  "message.gameoverse_locked_chests.needs_key": "Locked. Key needed: %s or better."
 }
