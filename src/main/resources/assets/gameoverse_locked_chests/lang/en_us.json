@@ -1,0 +1,9 @@
+{
+  "item.gameoverse_locked_chests.bronze_key": "Bronze Key",
+  "item.gameoverse_locked_chests.silver_key": "Silver Key",
+  "item.gameoverse_locked_chests.gold_key": "Golden Key",
+  "item.gameoverse_locked_chests.diamond_key": "Diamond Key",
+  "block.gameoverse_locked_chests.locked_chest": "Locked Chest",
+  "container.gameoverse_locked_chests.locked_chest": "Locked Chest",
+  "message.gameoverse_locked_chests.needs_key": "Locked. Needs a %s or better."
+}
