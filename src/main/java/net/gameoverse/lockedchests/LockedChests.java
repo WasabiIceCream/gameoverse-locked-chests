@@ -44,7 +44,7 @@ public final class LockedChests implements ModInitializer {
         }
         LOCKED_CHEST = block("locked_chest", LockedChestBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD).strength(-1.0F, 3600000.0F).sound(SoundType.WOOD)
-            .pushReaction(PushReaction.BLOCK).noLootTable());
+            .pushReaction(PushReaction.BLOCK).noLootTable().noOcclusion());
         Item chestItem = item("locked_chest", p -> new BlockItem(LOCKED_CHEST, p), new Item.Properties().useBlockDescriptionPrefix());
         LOCKED_CHEST_ENTITY = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id("locked_chest"),
             FabricBlockEntityTypeBuilder.create(LockedChestBlockEntity::new, LOCKED_CHEST).build());

@@ -23,7 +23,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * A chest that needs a key of its tier or better. Unbreakable outside creative (hardness -1) and blast-proof, like
@@ -63,6 +66,15 @@ public class LockedChestBlock extends BaseEntityBlock {
     @Override
     protected BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+
+    /** Matches the chest models (one block wide, two thirds tall, inset front and back). */
+    private static final VoxelShape SHAPE_NS = Block.box(0, 0, 1.33, 16, 10.67, 14.67);
+    private static final VoxelShape SHAPE_EW = Block.box(1.33, 0, 0, 14.67, 10.67, 16);
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return state.getValue(FACING).getAxis() == Direction.Axis.X ? SHAPE_EW : SHAPE_NS;
     }
 
     @Override
