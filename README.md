@@ -21,6 +21,8 @@ original (`tools/draw.py` draws the textures).
   Rare, 70% Epic, always in Legendary, 1-2 in Divine: the hearts mod's own 10% chest roll only hooks vanilla loot
   containers, so locking a chest would otherwise have removed its crystal chance). After that the player opens their
   copy without a key; everyone else still needs one.
+- **Jade** shows the tier ("Epic Locked Chest", tier colour, matching icon): the picked item is named and tagged
+  (`custom_model_data` string) with the tier, and `JadeTierName` tells Jade to use the picked item for this block.
 - Unbreakable outside creative, blast-proof, doesn't hide the block below it (`noOcclusion`), model-shaped hitbox.
   Hoppers can't reach it (not a vanilla container).
 - **Animated** with `gameoverse-locked-chests-art` (the purchased chest art, never published): a client block entity
