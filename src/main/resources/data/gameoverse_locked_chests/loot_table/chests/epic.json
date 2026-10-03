@@ -39,6 +39,21 @@
           "chance": 0.7
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.4
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse_moar:tier/epic"
+        }
+      ]
     }
   ],
   "fabric:load_conditions": [

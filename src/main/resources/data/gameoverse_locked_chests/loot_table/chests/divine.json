@@ -36,6 +36,21 @@
           "value": "gameoverse:hearts/heart_crystal_item"
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.6
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse_moar:tier/divine"
+        }
+      ]
     }
   ],
   "fabric:load_conditions": [

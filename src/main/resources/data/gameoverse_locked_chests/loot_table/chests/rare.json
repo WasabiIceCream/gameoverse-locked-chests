@@ -45,6 +45,21 @@
           "chance": 0.45
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.35
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse_moar:tier/rare"
+        }
+      ]
     }
   ],
   "fabric:load_conditions": [
