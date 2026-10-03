@@ -6,5 +6,10 @@
   "item.gameoverse_locked_chests.divine_key": "Divine Key",
   "block.gameoverse_locked_chests.locked_chest": "Locked Chest",
   "container.gameoverse_locked_chests.locked_chest": "Locked Chest",
-  "message.gameoverse_locked_chests.needs_key": "Locked. Key needed: %s or better."
+  "message.gameoverse_locked_chests.needs_key": "Locked. Key needed: %s or better.",
+  "block.gameoverse_locked_chests.locked_chest.common": "Common Locked Chest",
+  "block.gameoverse_locked_chests.locked_chest.rare": "Rare Locked Chest",
+  "block.gameoverse_locked_chests.locked_chest.epic": "Epic Locked Chest",
+  "block.gameoverse_locked_chests.locked_chest.legendary": "Legendary Locked Chest",
+  "block.gameoverse_locked_chests.locked_chest.divine": "Divine Locked Chest"
 }

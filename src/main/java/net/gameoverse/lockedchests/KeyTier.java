@@ -1,13 +1,22 @@
 package net.gameoverse.lockedchests;
 
 import java.util.Locale;
+import net.minecraft.ChatFormatting;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 /** The five key and lock tiers, weakest first. A key opens its own tier and every tier below it. */
 public enum KeyTier implements StringRepresentable {
-    COMMON, RARE, EPIC, LEGENDARY, DIVINE;
+    // Name colours follow the chest art's tiers.
+    COMMON(ChatFormatting.GRAY), RARE(ChatFormatting.GREEN), EPIC(ChatFormatting.LIGHT_PURPLE),
+    LEGENDARY(ChatFormatting.GOLD), DIVINE(ChatFormatting.AQUA);
+
+    public final ChatFormatting colour;
+
+    KeyTier(ChatFormatting colour) {
+        this.colour = colour;
+    }
 
     private final String name = name().toLowerCase(Locale.ROOT);
 

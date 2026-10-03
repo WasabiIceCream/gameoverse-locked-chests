@@ -6,7 +6,6 @@ import java.util.function.Function;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -38,13 +37,10 @@ public final class LockedChests implements ModInitializer {
     @Override
     public void onInitialize() {
         Config.load();
-        // Name colours follow the chest art's tiers: grey, green, light purple, gold, aqua.
-        ChatFormatting[] colours = {ChatFormatting.GRAY, ChatFormatting.GREEN, ChatFormatting.LIGHT_PURPLE,
-            ChatFormatting.GOLD, ChatFormatting.AQUA};
         for (KeyTier tier : KeyTier.values()) {
             String name = tier.getSerializedName() + "_key";
             KEYS.put(tier, item(name, Item::new, new Item.Properties().stacksTo(16).component(DataComponents.ITEM_NAME,
-                Component.translatable("item." + MOD_ID + "." + name).withStyle(colours[tier.ordinal()]))));
+                Component.translatable("item." + MOD_ID + "." + name).withStyle(tier.colour))));
         }
         LOCKED_CHEST = block("locked_chest", LockedChestBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD).strength(-1.0F, 3600000.0F).sound(SoundType.WOOD)

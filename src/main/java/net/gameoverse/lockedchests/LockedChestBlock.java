@@ -24,6 +24,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.BlockGetter;
+import java.util.List;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.CustomModelData;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -120,6 +124,21 @@ public class LockedChestBlock extends BaseEntityBlock {
         }
         if (!level.isClientSide()) tooWeak(player, state.getValue(TIER), pos, level);
         return InteractionResult.SUCCESS;
+    }
+
+    /**
+     * The picked item is named after the chest's tier ("Epic Locked Chest", tier colour) and tagged with it
+     * ({@code custom_model_data} string, which the art pack's item model selects on), so Jade, which names a block
+     * after its picked item, shows the tier.
+     */
+    @Override
+    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
+        KeyTier tier = state.getValue(TIER);
+        ItemStack stack = new ItemStack(this);
+        stack.set(DataComponents.ITEM_NAME, Component.translatable(getDescriptionId() + "." + tier.getSerializedName())
+            .withStyle(tier.colour));
+        stack.set(DataComponents.CUSTOM_MODEL_DATA, new CustomModelData(List.of(), List.of(), List.of(tier.getSerializedName()), List.of()));
+        return stack;
     }
 
     @Override
