@@ -22,13 +22,14 @@ public final class Config {
     public boolean logPlacements = false;
     /** Lowest area level (Dynamic Difficulty, structure bonus included) for each lock tier above Common. */
     public Map<String, Integer> tierMinLevel = ordered("rare", 15, "epic", 30, "legendary", 45, "divine", 60);
-    /** Key dropped by an Invader of each Apotheosis rarity (rarities left out drop nothing). */
+    /** Key dropped by an Invader of each Apotheosis rarity (same name, Mythic gives Legendary; left out: none). */
     public Map<String, String> invaderKeys = ordered(
-        "apotheosis:rare", "common", "apotheosis:epic", "rare", "apotheosis:mythic", "epic");
+        "apotheosis:common", "common", "apotheosis:uncommon", "common", "apotheosis:rare", "rare",
+        "apotheosis:epic", "epic", "apotheosis:mythic", "legendary");
     /** Key dropped by an Elite of each Apotheosis rarity. */
     public Map<String, String> eliteKeys = ordered(
-        "apotheosis:common", "common", "apotheosis:uncommon", "common", "apotheosis:rare", "common",
-        "apotheosis:epic", "rare", "apotheosis:mythic", "rare");
+        "apotheosis:common", "common", "apotheosis:uncommon", "common", "apotheosis:rare", "rare",
+        "apotheosis:epic", "epic", "apotheosis:mythic", "legendary");
     /** Key dropped by these entity types (Dragonkind Evolved's dragons are the vanilla Ender Dragon). */
     public Map<String, String> bossKeys = ordered(
         "minecraft:wither", "divine", "minecraft:warden", "legendary", "minecraft:elder_guardian", "legendary",

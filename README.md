@@ -8,8 +8,8 @@ original (`tools/draw.py` draws the textures).
 
 - **Keys**: Common, Rare, Epic, Legendary, Divine (names coloured like the chest art's tiers). A key opens its own tier
   and every tier below, and is used up. Dropped when a player kills:
-  - an Apotheosis Invader: Rare Common, Epic Rare, Mythic Epic (Common and Uncommon drop none);
-  - an Apotheosis Elite: Common to Rare Common, Epic and Mythic Rare;
+  - an Apotheosis Invader or Elite: the key named like its rarity (Common and Uncommon: Common, Rare, Epic,
+    Mythic: Legendary; user's call 2026-10-03, which also gave Common and Uncommon Invaders a key);
   - the Warden or an Elder Guardian: Legendary; the Wither or Ender Dragon (Dragonkind Evolved's dragons included):
     Divine.
 - **Locked Chests**: each single, dry structure loot chest has a 6% chance to generate locked instead, keeping its
