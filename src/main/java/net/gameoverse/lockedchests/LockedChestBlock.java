@@ -122,6 +122,12 @@ public class LockedChestBlock extends BaseEntityBlock {
         return InteractionResult.SUCCESS;
     }
 
+    @Override
+    protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int param) {
+        BlockEntity be = level.getBlockEntity(pos);
+        return be != null && be.triggerEvent(id, param);
+    }
+
     private static void tooWeak(Player player, KeyTier lock, BlockPos pos, Level level) {
         level.playSound(null, pos, SoundEvents.CHEST_LOCKED, SoundSource.BLOCKS, 1.0F, 1.0F);
         player.sendOverlayMessage(Component.translatable("message.gameoverse_locked_chests.needs_key",

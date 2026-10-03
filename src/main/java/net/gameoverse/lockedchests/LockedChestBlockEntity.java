@@ -44,6 +44,11 @@ public class LockedChestBlockEntity extends BlockEntity {
     /** Placed by world generation, tier not worked out yet (see {@link ChestPlacer#settleTiers}). */
     private boolean tierPending;
     private final Map<UUID, NonNullList<ItemStack>> contents = new HashMap<>();
+    /** Server: players with the chest open. */
+    private int viewers;
+    /** Client: players with it open, from block event 1, and the game tick it last changed (for the animations). */
+    public int openCount;
+    public long openChangedTick = Long.MIN_VALUE;
 
     public LockedChestBlockEntity(BlockPos pos, BlockState state) {
         super(LockedChests.LOCKED_CHEST_ENTITY, pos, state);
@@ -102,8 +107,27 @@ public class LockedChestBlockEntity extends BlockEntity {
         Container container = new ListContainer(items, this);
         player.openMenu(new SimpleMenuProvider((id, inventory, p) -> ChestMenu.threeRows(id, inventory, container),
             Component.translatable("container.gameoverse_locked_chests.locked_chest")));
-        player.level().playSound(null, worldPosition, SoundEvents.CHEST_OPEN, SoundSource.BLOCKS, 0.5F,
-            player.level().getRandom().nextFloat() * 0.1F + 0.9F);
+    }
+
+    /** A player opened (+1) or closed (-1) their copy: sound on the first/last, and tell clients for the lid. */
+    void viewerChanged(int delta) {
+        if (level == null || level.isClientSide()) return;
+        int before = viewers;
+        viewers = Math.max(0, viewers + delta);
+        if (before == 0 && viewers > 0) {
+            level.playSound(null, worldPosition, SoundEvents.CHEST_OPEN, SoundSource.BLOCKS, 0.5F, level.getRandom().nextFloat() * 0.1F + 0.9F);
+        } else if (before > 0 && viewers == 0) {
+            level.playSound(null, worldPosition, SoundEvents.CHEST_CLOSE, SoundSource.BLOCKS, 0.5F, level.getRandom().nextFloat() * 0.1F + 0.9F);
+        }
+        level.blockEvent(worldPosition, getBlockState().getBlock(), 1, viewers);
+    }
+
+    @Override
+    public boolean triggerEvent(int id, int param) {
+        if (id != 1) return super.triggerEvent(id, param);
+        if (level != null && (openCount > 0) != (param > 0)) openChangedTick = level.getGameTime();
+        openCount = param;
+        return true;
     }
 
     @Override
@@ -189,6 +213,16 @@ public class LockedChestBlockEntity extends BlockEntity {
         @Override
         public void clearContent() {
             items.clear();
+        }
+
+        @Override
+        public void startOpen(net.minecraft.world.entity.ContainerUser user) {
+            owner.viewerChanged(1);
+        }
+
+        @Override
+        public void stopOpen(net.minecraft.world.entity.ContainerUser user) {
+            owner.viewerChanged(-1);
         }
     }
 }

@@ -4,13 +4,22 @@
   "version": "${version}",
   "name": "Gameoverse Locked Chests",
   "description": "Bosses drop Bronze, Silver, Gold and Diamond keys; some structure loot chests generate locked and hold better loot. Each player unlocks their own copy.",
-  "authors": ["Gameoverse"],
+  "authors": [
+    "Gameoverse"
+  ],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["net.gameoverse.lockedchests.LockedChests"]
+    "main": [
+      "net.gameoverse.lockedchests.LockedChests"
+    ],
+    "client": [
+      "net.gameoverse.lockedchests.client.LockedChestsClient"
+    ]
   },
-  "mixins": ["gameoverse_locked_chests.mixins.json"],
+  "mixins": [
+    "gameoverse_locked_chests.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.19",
     "fabric-api": "*",
