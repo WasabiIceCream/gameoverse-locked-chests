@@ -41,6 +41,8 @@ public class LockedChestBlockEntity extends BlockEntity {
     public static final int SIZE = 27;
     private ResourceKey<LootTable> lootTable;
     private long seed;
+    /** Placed by world generation, tier not worked out yet (see {@link ChestPlacer#settleTiers}). */
+    private boolean tierPending;
     private final Map<UUID, NonNullList<ItemStack>> contents = new HashMap<>();
 
     public LockedChestBlockEntity(BlockPos pos, BlockState state) {
@@ -51,6 +53,15 @@ public class LockedChestBlockEntity extends BlockEntity {
         this.lootTable = lootTable;
         this.seed = seed;
         setChanged();
+    }
+
+    public void setTierPending(boolean pending) {
+        this.tierPending = pending;
+        setChanged();
+    }
+
+    public boolean isTierPending() {
+        return tierPending;
     }
 
     public boolean isUnlockedFor(Player player) {
@@ -100,6 +111,7 @@ public class LockedChestBlockEntity extends BlockEntity {
         super.loadAdditional(input);
         lootTable = input.read("LootTable", ResourceKey.codec(Registries.LOOT_TABLE)).orElse(null);
         seed = input.getLongOr("LootTableSeed", 0L);
+        tierPending = input.getBooleanOr("TierPending", false);
         contents.clear();
         for (ValueInput child : input.childrenListOrEmpty("Players")) {
             UUID id;
@@ -119,6 +131,7 @@ public class LockedChestBlockEntity extends BlockEntity {
         super.saveAdditional(output);
         output.storeNullable("LootTable", ResourceKey.codec(Registries.LOOT_TABLE), lootTable);
         output.putLong("LootTableSeed", seed);
+        if (tierPending) output.putBoolean("TierPending", true);
         ValueOutput.ValueOutputList players = output.childrenList("Players");
         contents.forEach((id, items) -> {
             ValueOutput child = players.addChild();

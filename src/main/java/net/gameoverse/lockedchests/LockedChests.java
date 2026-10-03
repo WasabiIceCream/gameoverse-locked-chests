@@ -53,6 +53,7 @@ public final class LockedChests implements ModInitializer {
             output.accept(chestItem);
         });
         KeyDrops.register();
+        ChestPlacer.register();
     }
 
     public static Identifier id(String path) {
