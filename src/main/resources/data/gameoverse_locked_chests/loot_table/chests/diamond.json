@@ -24,6 +24,15 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse:hearts/heart_crystal_item"
+        }
+      ]
     }
   ],
   "fabric:load_conditions": [

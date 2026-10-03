@@ -30,6 +30,21 @@
           "chance": 0.75
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "gameoverse:hearts/heart_crystal_item"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.45
+        }
+      ]
     }
   ],
   "fabric:load_conditions": [

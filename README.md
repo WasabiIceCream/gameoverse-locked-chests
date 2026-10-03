@@ -16,7 +16,9 @@ original (`tools/draw.py` draws the textures).
   15, Silver 15+, Gold 30+, Diamond 45+.
 - **Per player**: unlocking rolls the chest's own loot table for that player (their own seed) plus the tier's bonus
   table (`data/gameoverse_locked_chests/loot_table/chests/<tier>.json`: Apotheosis affixed gear and a gem, better
-  rarities and purities per tier). After that the player opens their copy without a key; everyone else still needs one.
+  rarities and purities per tier, plus a Heart Crystal from `gameoverse:hearts/heart_crystal_item` at 25% Bronze,
+  45% Silver, 70% Gold, always in Diamond: the hearts mod's own 10% chest roll only hooks vanilla loot containers, so
+  locking a chest would otherwise have removed its crystal chance). After that the player opens their copy without a key; everyone else still needs one.
 - Unbreakable outside creative and blast-proof. Hoppers can't reach it (not a vanilla container).
 
 Everything above is in `config/gameoverse_locked_chests.json` (written with the defaults on first start):
