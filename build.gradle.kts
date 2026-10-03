@@ -16,6 +16,8 @@ dependencies {
     implementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     // Compile-only against the exact jar the server runs, for the area level that sets a chest's tier.
     compileOnly(files("../../fabric 26.1/mods/dynamic_difficulty-fabric-1.3.3+26.1.2.jar"))
+    // Jade, to show the tier in its name (JadeTierName).
+    compileOnly(files("../../fabric 26.1/mods/Jade-mc26.1-Fabric-26.1.11.jar"))
 }
 
 java {

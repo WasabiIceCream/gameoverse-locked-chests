@@ -15,6 +15,9 @@
     ],
     "client": [
       "net.gameoverse.lockedchests.client.LockedChestsClient"
+    ],
+    "jade": [
+      "net.gameoverse.lockedchests.JadeTierName"
     ]
   },
   "mixins": [
@@ -27,6 +30,7 @@
   },
   "suggests": {
     "apotheosis": "*",
-    "dynamic_difficulty": "*"
+    "dynamic_difficulty": "*",
+    "jade": "*"
   }
 }
