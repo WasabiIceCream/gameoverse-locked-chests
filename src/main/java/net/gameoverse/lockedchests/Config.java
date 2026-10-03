@@ -20,18 +20,18 @@ public final class Config {
     public double lockedChestChance = 0.06;
     /** Log every Locked Chest world generation places (for testing). */
     public boolean logPlacements = false;
-    /** Lowest area level (Dynamic Difficulty, structure bonus included) for each lock tier above Bronze. */
-    public Map<String, Integer> tierMinLevel = ordered("silver", 15, "gold", 30, "diamond", 45, "divine", 60);
+    /** Lowest area level (Dynamic Difficulty, structure bonus included) for each lock tier above Common. */
+    public Map<String, Integer> tierMinLevel = ordered("rare", 15, "epic", 30, "legendary", 45, "divine", 60);
     /** Key dropped by an Invader of each Apotheosis rarity (rarities left out drop nothing). */
     public Map<String, String> invaderKeys = ordered(
-        "apotheosis:rare", "bronze", "apotheosis:epic", "silver", "apotheosis:mythic", "gold");
+        "apotheosis:rare", "common", "apotheosis:epic", "rare", "apotheosis:mythic", "epic");
     /** Key dropped by an Elite of each Apotheosis rarity. */
     public Map<String, String> eliteKeys = ordered(
-        "apotheosis:common", "bronze", "apotheosis:uncommon", "bronze", "apotheosis:rare", "bronze",
-        "apotheosis:epic", "silver", "apotheosis:mythic", "silver");
+        "apotheosis:common", "common", "apotheosis:uncommon", "common", "apotheosis:rare", "common",
+        "apotheosis:epic", "rare", "apotheosis:mythic", "rare");
     /** Key dropped by these entity types (Dragonkind Evolved's dragons are the vanilla Ender Dragon). */
     public Map<String, String> bossKeys = ordered(
-        "minecraft:wither", "divine", "minecraft:warden", "diamond", "minecraft:elder_guardian", "diamond",
+        "minecraft:wither", "divine", "minecraft:warden", "legendary", "minecraft:elder_guardian", "legendary",
         "minecraft:ender_dragon", "divine");
 
     public static Config INSTANCE = new Config();
@@ -58,7 +58,7 @@ public final class Config {
     }
 
     KeyTier tierForLevel(int level) {
-        KeyTier best = KeyTier.BRONZE;
+        KeyTier best = KeyTier.COMMON;
         for (KeyTier tier : KeyTier.values()) {
             Integer min = tierMinLevel.get(tier.getSerializedName());
             if (min != null && level >= min) best = tier;

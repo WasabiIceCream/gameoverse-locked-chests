@@ -6,7 +6,10 @@ import java.util.function.Function;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -14,7 +17,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -23,8 +25,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 /**
- * Locked Chests, after Minecraft Infinite's (idea only, all code and art our own). Bosses drop Bronze, Silver, Gold,
- * Diamond and Divine keys ({@link KeyDrops}); a share of structure loot chests generate locked ({@link ChestPlacer}), holding
+ * Locked Chests, after Minecraft Infinite's (idea only, all code and art our own). Bosses drop Common, Rare, Epic,
+ * Legendary and Divine keys ({@link KeyDrops}); a share of structure loot chests generate locked ({@link ChestPlacer}), holding
  * their own loot plus a better bonus roll, unlocked per player ({@link LockedChestBlockEntity}).
  */
 public final class LockedChests implements ModInitializer {
@@ -36,11 +38,13 @@ public final class LockedChests implements ModInitializer {
     @Override
     public void onInitialize() {
         Config.load();
-        Rarity[] rarities = {Rarity.UNCOMMON, Rarity.RARE, Rarity.EPIC, Rarity.EPIC, Rarity.EPIC};
+        // Name colours follow the chest art's tiers: grey, green, light purple, gold, aqua.
+        ChatFormatting[] colours = {ChatFormatting.GRAY, ChatFormatting.GREEN, ChatFormatting.LIGHT_PURPLE,
+            ChatFormatting.GOLD, ChatFormatting.AQUA};
         for (KeyTier tier : KeyTier.values()) {
             String name = tier.getSerializedName() + "_key";
-            Rarity rarity = rarities[tier.ordinal()];
-            KEYS.put(tier, item(name, Item::new, new Item.Properties().stacksTo(16).rarity(rarity)));
+            KEYS.put(tier, item(name, Item::new, new Item.Properties().stacksTo(16).component(DataComponents.ITEM_NAME,
+                Component.translatable("item." + MOD_ID + "." + name).withStyle(colours[tier.ordinal()]))));
         }
         LOCKED_CHEST = block("locked_chest", LockedChestBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD).strength(-1.0F, 3600000.0F).sound(SoundType.WOOD)

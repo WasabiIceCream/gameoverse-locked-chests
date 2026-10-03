@@ -40,7 +40,7 @@ public class LockedChestBlock extends BaseEntityBlock {
 
     public LockedChestBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TIER, KeyTier.BRONZE));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TIER, KeyTier.COMMON));
     }
 
     @Override

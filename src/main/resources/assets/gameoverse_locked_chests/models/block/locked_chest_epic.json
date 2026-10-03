@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "top": "gameoverse_locked_chests:block/locked_chest_top",
-    "front": "gameoverse_locked_chests:block/locked_chest_front_bronze",
+    "front": "gameoverse_locked_chests:block/locked_chest_front_epic",
     "side": "gameoverse_locked_chests:block/locked_chest_side"
   }
 }

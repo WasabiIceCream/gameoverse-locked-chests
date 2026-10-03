@@ -1,63 +1,63 @@
 {
   "variants": {
-    "facing=north,tier=bronze": {
-      "model": "gameoverse_locked_chests:block/locked_chest_bronze"
+    "facing=north,tier=common": {
+      "model": "gameoverse_locked_chests:block/locked_chest_common"
     },
-    "facing=east,tier=bronze": {
-      "model": "gameoverse_locked_chests:block/locked_chest_bronze",
+    "facing=east,tier=common": {
+      "model": "gameoverse_locked_chests:block/locked_chest_common",
       "y": 90
     },
-    "facing=south,tier=bronze": {
-      "model": "gameoverse_locked_chests:block/locked_chest_bronze",
+    "facing=south,tier=common": {
+      "model": "gameoverse_locked_chests:block/locked_chest_common",
       "y": 180
     },
-    "facing=west,tier=bronze": {
-      "model": "gameoverse_locked_chests:block/locked_chest_bronze",
+    "facing=west,tier=common": {
+      "model": "gameoverse_locked_chests:block/locked_chest_common",
       "y": 270
     },
-    "facing=north,tier=silver": {
-      "model": "gameoverse_locked_chests:block/locked_chest_silver"
+    "facing=north,tier=rare": {
+      "model": "gameoverse_locked_chests:block/locked_chest_rare"
     },
-    "facing=east,tier=silver": {
-      "model": "gameoverse_locked_chests:block/locked_chest_silver",
+    "facing=east,tier=rare": {
+      "model": "gameoverse_locked_chests:block/locked_chest_rare",
       "y": 90
     },
-    "facing=south,tier=silver": {
-      "model": "gameoverse_locked_chests:block/locked_chest_silver",
+    "facing=south,tier=rare": {
+      "model": "gameoverse_locked_chests:block/locked_chest_rare",
       "y": 180
     },
-    "facing=west,tier=silver": {
-      "model": "gameoverse_locked_chests:block/locked_chest_silver",
+    "facing=west,tier=rare": {
+      "model": "gameoverse_locked_chests:block/locked_chest_rare",
       "y": 270
     },
-    "facing=north,tier=gold": {
-      "model": "gameoverse_locked_chests:block/locked_chest_gold"
+    "facing=north,tier=epic": {
+      "model": "gameoverse_locked_chests:block/locked_chest_epic"
     },
-    "facing=east,tier=gold": {
-      "model": "gameoverse_locked_chests:block/locked_chest_gold",
+    "facing=east,tier=epic": {
+      "model": "gameoverse_locked_chests:block/locked_chest_epic",
       "y": 90
     },
-    "facing=south,tier=gold": {
-      "model": "gameoverse_locked_chests:block/locked_chest_gold",
+    "facing=south,tier=epic": {
+      "model": "gameoverse_locked_chests:block/locked_chest_epic",
       "y": 180
     },
-    "facing=west,tier=gold": {
-      "model": "gameoverse_locked_chests:block/locked_chest_gold",
+    "facing=west,tier=epic": {
+      "model": "gameoverse_locked_chests:block/locked_chest_epic",
       "y": 270
     },
-    "facing=north,tier=diamond": {
-      "model": "gameoverse_locked_chests:block/locked_chest_diamond"
+    "facing=north,tier=legendary": {
+      "model": "gameoverse_locked_chests:block/locked_chest_legendary"
     },
-    "facing=east,tier=diamond": {
-      "model": "gameoverse_locked_chests:block/locked_chest_diamond",
+    "facing=east,tier=legendary": {
+      "model": "gameoverse_locked_chests:block/locked_chest_legendary",
       "y": 90
     },
-    "facing=south,tier=diamond": {
-      "model": "gameoverse_locked_chests:block/locked_chest_diamond",
+    "facing=south,tier=legendary": {
+      "model": "gameoverse_locked_chests:block/locked_chest_legendary",
       "y": 180
     },
-    "facing=west,tier=diamond": {
-      "model": "gameoverse_locked_chests:block/locked_chest_diamond",
+    "facing=west,tier=legendary": {
+      "model": "gameoverse_locked_chests:block/locked_chest_legendary",
       "y": 270
     },
     "facing=north,tier=divine": {

@@ -1,10 +1,9 @@
 {
-  "item.gameoverse_locked_chests.bronze_key": "Bronze Key",
-  "item.gameoverse_locked_chests.silver_key": "Silver Key",
-  "item.gameoverse_locked_chests.gold_key": "Golden Key",
-  "item.gameoverse_locked_chests.diamond_key": "Diamond Key",
+  "item.gameoverse_locked_chests.common_key": "Common Key",
+  "item.gameoverse_locked_chests.rare_key": "Rare Key",
+  "item.gameoverse_locked_chests.epic_key": "Epic Key",
+  "item.gameoverse_locked_chests.legendary_key": "Legendary Key",
   "item.gameoverse_locked_chests.divine_key": "Divine Key",
   "block.gameoverse_locked_chests.locked_chest": "Locked Chest",
-  "container.gameoverse_locked_chests.locked_chest": "Locked Chest",
-  "message.gameoverse_locked_chests.needs_key": "Locked. Needs a %s or better."
+  "container.gameoverse_locked_chests.locked_chest": "Locked Chest"
 }

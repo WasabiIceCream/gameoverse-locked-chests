@@ -77,7 +77,7 @@ public final class ChestPlacer {
 
     /**
      * The tier needs the Dynamic Difficulty area level, and asking for it during world generation waits on the very
-     * chunk being generated (the server hung on it). So world generation places a Bronze chest marked tier-pending,
+     * chunk being generated (the server hung on it). So world generation places a Common chest marked tier-pending,
      * and the tier is set here on the server thread once its chunk has fully loaded.
      */
     static void register() {

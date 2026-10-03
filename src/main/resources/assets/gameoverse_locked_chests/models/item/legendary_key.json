@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "gameoverse_locked_chests:item/silver_key"
+    "layer0": "gameoverse_locked_chests:item/legendary_key"
   }
 }
