@@ -1,0 +1,15 @@
+{
+  "item.gameoverse_locked_chests.common_key": "コモンの鍵",
+  "item.gameoverse_locked_chests.rare_key": "レアの鍵",
+  "item.gameoverse_locked_chests.epic_key": "エピックの鍵",
+  "item.gameoverse_locked_chests.legendary_key": "レジェンダリーの鍵",
+  "item.gameoverse_locked_chests.divine_key": "ディヴァインの鍵",
+  "block.gameoverse_locked_chests.locked_chest": "鍵付きチェスト",
+  "container.gameoverse_locked_chests.locked_chest": "鍵付きチェスト",
+  "message.gameoverse_locked_chests.needs_key": "鍵がかかっている。必要な鍵: %s以上",
+  "block.gameoverse_locked_chests.locked_chest.common": "コモンの鍵付きチェスト",
+  "block.gameoverse_locked_chests.locked_chest.rare": "レアの鍵付きチェスト",
+  "block.gameoverse_locked_chests.locked_chest.epic": "エピックの鍵付きチェスト",
+  "block.gameoverse_locked_chests.locked_chest.legendary": "レジェンダリーの鍵付きチェスト",
+  "block.gameoverse_locked_chests.locked_chest.divine": "ディヴァインの鍵付きチェスト"
+}
